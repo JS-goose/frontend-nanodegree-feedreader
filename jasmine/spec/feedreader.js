@@ -94,7 +94,7 @@ $(
       it("contain at least one .entry element within the .feed container", function() {
         //After loadFeed() completes, checks to see if at least 1 .entry is in .feed
         // expect(feed.length).not.toBe(0);
-        expect($(".entry").parent().length).not.toBe(0);
+        expect($(".feed .entry").length).not.toBe(0);
       });
     });
     /* DONE - Write a new test suite named "New Feed Selection" */
