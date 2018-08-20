@@ -2,6 +2,8 @@ let bodyEle = document.body;
 let menuIcon = document.querySelector(".menu-icon-link");
 let feed = document.querySelector(".feed");
 let feedArr = [];
+let feed1;
+let feed2;
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -38,7 +40,7 @@ $(
       it("has a URL defined", function() {
         for (var feedURL in allFeeds) {
           expect(allFeeds[feedURL].url).toBeDefined();
-          expect(allFeeds[feedURL].url).not.toBe("");
+          expect(allFeeds[feedURL].url.length).not.toBe(0);
         }
       });
 
@@ -49,7 +51,7 @@ $(
       it("has a Name defined", function() {
         for (var feedName in allFeeds) {
           expect(allFeeds[feedName].name).toBeDefined();
-          expect(allFeeds[feedName].name).not.toBe("");
+          expect(allFeeds[feedName].name.length).not.toBe(0);
         }
       });
     });
@@ -91,7 +93,8 @@ $(
 
       it("contain at least one .entry element within the .feed container", function() {
         //After loadFeed() completes, checks to see if at least 1 .entry is in .feed
-        expect(feed.length).not.toBe(0);
+        // expect(feed.length).not.toBe(0);
+        expect($(".entry").parent().length).not.toBe(0);
       });
     });
     /* DONE - Write a new test suite named "New Feed Selection" */
@@ -103,10 +106,12 @@ $(
       beforeEach(function(done) {
         // load first entry into feed and push to empty array for comparison
         loadFeed(0, function() {
-          feedArr.push(document.querySelector(".feed .entry").innerText);
+          feed1 = document.querySelector(".feed .entry").innerText;
+          feedArr.push(feed1);
           // load second entry into feed and push to empty array for comparison
           loadFeed(1, function() {
-            feedArr.push(document.querySelector(".feed .entry").innerText);
+            feed2 = document.querySelector(".feed .entry").innerText;
+            feedArr.push(feed2);
             done();
           });
         });
