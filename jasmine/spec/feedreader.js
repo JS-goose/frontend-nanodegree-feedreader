@@ -106,11 +106,11 @@ $(
       beforeEach(function(done) {
         // load first entry into feed and push to empty array for comparison
         loadFeed(0, function() {
-          feed1 = document.querySelector(".feed .entry").innerText;
+          feed1 = document.querySelector(".feed .entry").innerHTML;
           feedArr.push(feed1);
           // load second entry into feed and push to empty array for comparison
           loadFeed(1, function() {
-            feed2 = document.querySelector(".feed .entry").innerText;
+            feed2 = document.querySelector(".feed .entry").innerHTML;
             feedArr.push(feed2);
             done();
           });
